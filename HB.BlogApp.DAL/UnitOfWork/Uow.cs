@@ -1,6 +1,7 @@
 ﻿using HB.BlogApp.DAL.Abstracts;
 using HB.BlogApp.DAL.Contexts;
 using HB.BlogApp.DAL.Repository;
+using HB.BlogApp.Entities.Base;
 using HB.BlogApp.Entities.Entities;
 using System;
 using System.Collections.Generic;
@@ -30,9 +31,12 @@ namespace HB.BlogApp.DAL.UnitOfWork
 
         IRepository<T> IUow.GetRepository<T>()
         {
-
             return new GenericRepository<T>(_context);
         }
+
+       
+
+
     }
 
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HB.BlogApp.DAL.Abstracts
 {
-    public interface IRepository<T> where T : class,IBaseEntity ,new()
+    public interface IRepository<T> where T : IBaseEntity 
     {
         void Add(T entity);
         void Delete(T entity);

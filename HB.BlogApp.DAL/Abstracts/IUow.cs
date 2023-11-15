@@ -11,7 +11,7 @@ namespace HB.BlogApp.DAL.Abstracts
     {
 
         void SaveChanges();
-        IRepository<T> GetRepository<T>() where T : class,IBaseEntity,new();
+        public IRepository<T> GetRepository<T>() where T : class,IBaseEntity;
 
     }
 }

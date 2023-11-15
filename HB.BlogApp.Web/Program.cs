@@ -1,7 +1,12 @@
+using HB.BlogApp.BL.Extentions;
+using HB.BlogApp.DAL.Extentions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddBLDepecenies();
+builder.Services.AddDALDependencies(builder.Configuration.GetConnectionString("SqlCon"));
 
 var app = builder.Build();
 

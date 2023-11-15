@@ -17,7 +17,8 @@ namespace HB.BlogApp.Entities.Entities
         public Blog Blog { get; set; }
 
 
-        //FK
+        //FK => bu senaryoda bir bloga  aynı userın birden çok yorum atma ihtimaline karşı bu iki foregin birleşimini PK yapmadık!!!!
+
         public string UserId { get; set; } = null!;
         public int BlogId { get; set; }
 
