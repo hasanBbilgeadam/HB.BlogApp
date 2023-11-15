@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HB.BlogApp.BL.Services
 {
-    public interface AccountService
+    public interface IAccountService
     {
     }
 
