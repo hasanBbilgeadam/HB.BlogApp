@@ -53,6 +53,7 @@ namespace HB.BlogApp.BL.Managers
 
         public List<ListDto> GetAll()
         {
+            
             throw new NotImplementedException();
         }
 

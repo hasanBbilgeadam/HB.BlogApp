@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using HB.BlogApp.Dto;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,9 @@ namespace HB.BlogApp.BL.Services
     public interface IAccountService
     {
 
-        public void Regiser();
+        public Task<List<string>> Regiser(UserCreateDto dto);
 
-        //login
-        //logout
-        //register
-
-        //reset pass
-        //email verfy
+       
 
 
 

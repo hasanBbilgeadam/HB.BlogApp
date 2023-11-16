@@ -3,6 +3,7 @@ using HB.BlogApp.Dto;
 using HB.BlogApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace HB.BlogApp.Web.Controllers
 {
@@ -11,34 +12,30 @@ namespace HB.BlogApp.Web.Controllers
 
         private readonly ICategoryService _categoryService;
         private readonly IEmailService _emailService;
-
-        public HomeController(ICategoryService categoryService, IEmailService emailService)
+        private readonly IAccountService _accountService;
+        public HomeController(ICategoryService categoryService, IEmailService emailService, IAccountService accountService)
         {
             _categoryService = categoryService;
             _emailService = emailService;
+            _accountService = accountService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
-            var htmlBody = $@"
-    
+            var result  = await _accountService.Regiser(new UserCreateDto()
+            {
 
-                        <html>
-                    <head>
-   <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
-                    </head>
-                    <body>
-                        <h2>bu bir test maili</h2>
-                        <p>{DateTime.Now.ToString()}<p/>
-                    </body>
-                    </html>
-
-                
-                ";
+                Email= "baysalhasanbilgeadam@gmail.com",
+                UserName="hasan123hasan",
+                Password="a23uasdascCASD:Ç':!",
+                Name="hasan",
+                SurName="baysal",
 
 
-            _emailService.SendMail("hasan.baysall@gmail.com", "Test", htmlBody);
+            });
+
+          
             return View();
         }
 
@@ -54,3 +51,14 @@ namespace HB.BlogApp.Web.Controllers
 
     }
 }
+
+
+/*
+ 
+ <a href=
+
+
+
+
+"https://localhost:7185?userId=805104e1-4f4c-4980-b88b-8f4722ebc972&amp;token=CfDJ8OS+jjutNZ5FgWVDIN/AjRiBqMDLufbNN051CSGG5LqzlQYZJNMjlZpIBF7A27Fkz4KMkf9Zj7t+U8H7Zr5h3sfIXAK6NiV7cIYBwHBSCeHtumFWRRnfBnxlSftkLPqb03ItUQi64XUvkFE/vivINRJiOk4hOYiEzJlwU5F/7vR9HgxXTPidDDRgldYm7Yk//g8svgI0Zi5S2NBAXdjR6XvdOqnpd4TBSWEFGmg6iFcx6nWvHecOkSTc76h17vqY6w=="
+ */
