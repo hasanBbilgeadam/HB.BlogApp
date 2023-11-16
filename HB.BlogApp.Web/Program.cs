@@ -1,5 +1,7 @@
 using HB.BlogApp.BL.Extentions;
 using HB.BlogApp.DAL.Extentions;
+using HB.BlogApp.Dto.EmailConfigs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +10,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddBLDepecenies();
 builder.Services.AddDALDependencies(builder.Configuration.GetConnectionString("SqlCon"));
 
+
+builder.Services.Configure<EmailOption>(builder.Configuration.GetSection("EmailOption"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -24,6 +24,7 @@ namespace HB.BlogApp.BL.Extentions
             #region Custom Service Aadd
 
             services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<IEmailService, MailManager>();
 
             #endregion
 

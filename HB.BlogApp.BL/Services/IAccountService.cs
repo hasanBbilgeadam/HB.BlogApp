@@ -8,8 +8,22 @@ using System.Threading.Tasks;
 
 namespace HB.BlogApp.BL.Services
 {
+    //
     public interface IAccountService
     {
+
+        public void Regiser();
+
+        //login
+        //logout
+        //register
+
+        //reset pass
+        //email verfy
+
+
+
+
     }
 
 }
